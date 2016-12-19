@@ -1,9 +1,7 @@
 defmodule RunLengthEncoder do
   @spec encode(String.t) :: String.t
   def encode(string) do
-    chars =
-      string
-      |> String.split("", trim: true)
+    chars = String.graphemes(string)
     do_encode(chars, Enum.at(chars, 0), 0, "")
   end
 
